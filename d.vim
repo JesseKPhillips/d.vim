@@ -163,12 +163,12 @@ if exists("d_comment_strings")
   syn region dBlockCommentString	contained start=+"+ end=+"+ end=+\*/+me=s-1,he=s-1 contains=dCommentStar,dUnicode,dEscSequence,@Spell
   syn region dNestedCommentString	contained start=+"+ end=+"+ end="+"me=s-1,he=s-1 contains=dCommentPlus,dUnicode,dEscSequence,@Spell
   syn region dLineCommentString		contained start=+"+ end=+$\|"+ contains=dUnicode,dEscSequence,@Spell
-  syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTodo,@Spell
-  syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell
+  syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTodo,@Spell fold
+  syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell fold
   syn match  dLineComment	"//.*" contains=dLineCommentString,dTodo,@Spell
 else
-  syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTodo,@Spell
-  syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell
+  syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTodo,@Spell fold
+  syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell fold
   syn match  dLineComment	"//.*" contains=dLineCommentString,dTodo,@Spell
 endif
 
@@ -281,6 +281,10 @@ syn case match
 " Pragma (preprocessor) support
 " TODO: Highlight following Integer and optional Filespec.
 syn region  dPragma start="#\s*\(line\>\)" skip="\\$" end="$"
+
+" Block
+"
+syn region dBlock	start="{" end="}" transparent fold
 
 
 " The default highlighting.
