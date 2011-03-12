@@ -3,47 +3,26 @@
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
 " Last Change:  2010 Nov 18
-" Version:      0.23
+" Version:      0.24
 "
 " Contributors:
 "   - Jason Mills <jasonmills@nf.sympatico.ca>: original Maintainer
-"   - Kirk McDonald: version 0.17 updates, with minor modifications
-"     (http://paste.dprogramming.com/dplmb7qx?view=hidelines)
-"   - Tim Keating: patch to fix a bug in highlighting the `\` literal
-"   - Frank Benoit: Fixed a bug that caused some identifiers and numbers to highlight as octal number errors.
-"   - Shougo Matsushita <Shougo.Matsu@gmail.com>: updates for latest 2.047 highlighting
-"   - Ellery Newcomer: Fixed some highlighting bugs.
-"   - Steven N. Oliver: #! highlighting
-"   - Fix highlighting in middle of words
-"   - package is a scope declaration
+"   - Kirk McDonald
+"   - Tim Keating
+"   - Frank Benoit
+"   - Shougo Matsushita <Shougo.Matsu@gmail.com>
+"   - Ellery Newcomer
+"   - Steven N. Oliver
+"   - Sohgo Takeuchi
 "
-" Please email me with bugs, comments, and suggestions.
+" Please submit bugs/comments/suggestions to the github repo: 
+" https://github.com/he-the-great/d.vim
 "
 " Options:
 "   d_comment_strings - Set to highlight strings and numbers in comments.
 "
 "   d_hl_operator_overload - Set to highlight D's specially named functions
 "   that when overloaded implement unary and binary operators (e.g. opCmp).
-"
-" Todo:
-"   - Determine a better method of sync'ing than simply setting minlines
-"   to a large number.
-"
-"   - Several keywords (e.g., in, out, inout) are both storage class and
-"   statements, depending on their context. Perhaps use pattern matching to
-"   figure out which and highlight appropriately. For now I have made such
-"   keywords storage classes so their highlighting is consistent with other
-"   keywords that are commonly used with them, but are true storage classes,
-"   such as lazy. Similarly, I made some statement keywords (e.g. body) storage
-"   classes.
-"
-"   - Mark contents of the asm statement body as special
-"
-"   - Maybe highlight the 'exit', 'failure', and 'success' parts of the
-"   scope() statement.
-"
-"   - Highlighting DDoc comments.
-"
 
 " Quit when a syntax file was already loaded
 if exists("b:current_syntax")
