@@ -63,16 +63,21 @@ if exists("d_hl_operator_overload")
   syn keyword dOpOverload          opBinary opBinaryRight
 endif
 
+syn keyword dType                  byte ubyte short ushort int uint long ulong cent ucent
+syn keyword dType                  void bool bit
+syn keyword dType                  float double real
 syn keyword dType                  void ushort int uint long ulong float
-syn keyword dType                  byte ubyte double bit char wchar ucent cent
-syn keyword dType                  short bool dchar wstring dstring
-syn keyword dType                  real ireal ifloat idouble
-syn keyword dType                  creal cfloat cdouble
+syn keyword dType                  char wchar dchar string wstring dstring
+syn keyword dType                  ireal ifloat idouble creal cfloat cdouble
+if exists("d_hl_object_types")
+  syn keyword dType                size_t ptrdiff_t sizediff_t equals_t hash_t
+  syn keyword dType                Object Throwable AssociativeArray
+endif
 syn keyword dDebug                 deprecated unittest invariant
 syn keyword dExceptions            throw try catch finally
 syn keyword dScopeDecl             public protected private export package 
 syn keyword dStatement             debug return with
-syn keyword dStatement             function delegate __traits mixin macro
+syn keyword dStatement             function delegate __traits __ctfe mixin macro
 syn keyword dStorageClass          in out inout ref lazy body
 syn keyword dStorageClass          pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
@@ -83,13 +88,16 @@ syn keyword dIdentifier            _arguments _argptr __vptr __monitor _ctor _dt
 syn keyword dScopeIdentifier       contained exit success failure
 syn keyword dAttribute             contained safe trusted system
 syn keyword dAttribute             contained property disable
-syn keyword dVersionIdentifier     contained DigitalMars GNU LDC LLVM
-syn keyword dVersionIdentifier     contained X86 X86_64 Windows Win32 Win64 
-syn keyword dVersionIdentifier     contained linux Posix OSX FreeBSD
-syn keyword dVersionIdentifier     contained LittleEndian BigEndian D_Coverage
-syn keyword dVersionIdentifier     contained D_Ddoc D_InlineAsm_X86
-syn keyword dVersionIdentifier     contained D_InlineAsm_X86_64 D_LP64 D_PIC
-syn keyword dVersionIdentifier     contained unittest D_Version2 none all
+syn keyword dVersionIdentifier     contained DigitalMars GNU LDC SDC D_NET
+syn keyword dVersionIdentifier     contained X86 X86_64 ARM PPC PPC64 IA64 MIPS MIPS64 Alpha
+syn keyword dVersionIdentifier     contained SPARC SPARC64 S390 S390X HPPA HPPA64 SH SH64
+syn keyword dVersionIdentifier     contained linux Posix OSX FreeBSD Windows Win32 Win64
+syn keyword dVersionIdentifier     contained OpenBSD BSD Solaris AIX SkyOS SysV3 SysV4 Hurd
+syn keyword dVersionIdentifier     contained Cygwin MinGW
+syn keyword dVersionIdentifier     contained LittleEndian BigEndian
+syn keyword dVersionIdentifier     contained D_InlineAsm_X86 D_InlineAsm_X86_64
+syn keyword dVersionIdentifier     contained D_Version2 D_Coverage D_Ddoc D_LP64 D_PIC
+syn keyword dVersionIdentifier     contained unittest none all
 
 " Highlight the sharpbang
 syn match dSharpBang "\%^#!.*"     display
