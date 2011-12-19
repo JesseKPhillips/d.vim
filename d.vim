@@ -72,7 +72,7 @@ syn keyword dDebug                 deprecated unittest invariant
 syn keyword dExceptions            throw try catch finally
 syn keyword dScopeDecl             public protected private export package 
 syn keyword dStatement             debug return with
-syn keyword dStatement             function delegate __traits mixin macro
+syn keyword dStatement             function delegate __traits __ctfe mixin macro
 syn keyword dStorageClass          in out inout ref lazy body
 syn keyword dStorageClass          pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
