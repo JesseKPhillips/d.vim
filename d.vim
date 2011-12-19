@@ -63,11 +63,12 @@ if exists("d_hl_operator_overload")
   syn keyword dOpOverload          opBinary opBinaryRight
 endif
 
+syn keyword dType                  byte ubyte short ushort int uint long ulong cent ucent
+syn keyword dType                  void bool bit
+syn keyword dType                  float double real
 syn keyword dType                  void ushort int uint long ulong float
-syn keyword dType                  byte ubyte double bit char wchar ucent cent
-syn keyword dType                  short bool dchar wstring dstring
-syn keyword dType                  real ireal ifloat idouble
-syn keyword dType                  creal cfloat cdouble
+syn keyword dType                  char wchar dchar string wstring dstring
+syn keyword dType                  ireal ifloat idouble creal cfloat cdouble
 syn keyword dDebug                 deprecated unittest invariant
 syn keyword dExceptions            throw try catch finally
 syn keyword dScopeDecl             public protected private export package 
