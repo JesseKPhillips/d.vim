@@ -336,10 +336,10 @@ hi def link dAnnotation          PreProc
 hi def link dSharpBang           PreProc
 hi def link dAttribute           StorageClass
 hi def link dIdentifier          Identifier
-hi def link dVersionIdentifier   Identifier
 hi def link dVersion             dStatement
-hi def link dScopeIdentifier     dStatement
+hi def link dVersionIdentifier   Identifier
 hi def link dScope               dStorageClass
+hi def link dScopeIdentifier     Identifier
 hi def link dTraits              dStatement
 hi def link dTraitsIdentifier    Identifier
 
