@@ -115,7 +115,7 @@ syn match dAnnotation	"@[_$a-zA-Z][_$a-zA-Z0-9_]*\>" contains=dAttribute
 " Version Identifiers
 syn match dVersion   "[^.]\<version\>"hs=s+1 nextgroup=dVersionInside
 syn match dVersion   "^\<version\>" nextgroup=dVersionInside
-syn match dVersionInside  "([_a-zA-Z][_a-zA-Z0-9]*\>" transparent contained contains=dVersionIdentifier
+syn match dVersionInside  "\s*([_a-zA-Z][_a-zA-Z0-9]*\>" transparent contained contains=dVersionIdentifier
 
 " Scope StorageClass
 syn match dStorageClass   "\<scope\>"
