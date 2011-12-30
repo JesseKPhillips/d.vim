@@ -77,7 +77,7 @@ syn keyword dDebug                 deprecated unittest invariant
 syn keyword dExceptions            throw try catch finally
 syn keyword dScopeDecl             public protected private export package 
 syn keyword dStatement             debug return with
-syn keyword dStatement             function delegate __traits __ctfe mixin macro
+syn keyword dStatement             function delegate __ctfe mixin macro
 syn keyword dStorageClass          in out inout ref lazy body
 syn keyword dStorageClass          pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
@@ -86,6 +86,13 @@ syn keyword dStorageClass          synchronized shared immutable const lazy
 syn keyword dPragma                pragma
 syn keyword dIdentifier            _arguments _argptr __vptr __monitor _ctor _dtor
 syn keyword dScopeIdentifier       contained exit success failure
+syn keyword dTraitsIdentifier      contained isAbstractClass isArithmetic isAssociativeArray
+syn keyword dTraitsIdentifier      contained isFinalClass isFloating isIntegral isScalar
+syn keyword dTraitsIdentifier      contained isStaticArray isUnsigned isVirtualFunction
+syn keyword dTraitsIdentifier      contained isAbstractFunction isFinalFunction isStaticFunction
+syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember identifier getMember
+syn keyword dTraitsIdentifier      contained getOverloads getVirtualFunctions parent compiles
+syn keyword dTraitsIdentifier      contained classInstanceSize allMembers derivedMembers isSame
 syn keyword dAttribute             contained safe trusted system
 syn keyword dAttribute             contained property disable
 syn keyword dVersionIdentifier     contained DigitalMars GNU LDC SDC D_NET
@@ -113,8 +120,14 @@ syn match dVersionInside  "([_a-zA-Z][_a-zA-Z0-9]*\>" transparent contained cont
 " Scope StorageClass
 syn match dStorageClass   "\<scope\>"
 
+" Traits Expression
+syn match dStatement    "\<__traits\>"
+
 " Scope Identifiers
 syn match dScope	"\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIdentifier
+
+" Traits Identifiers
+syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
 
 " String is a statement and a module name.
 syn match dType "[^.]\<string\>"ms=s+1
@@ -327,6 +340,8 @@ hi def link dVersionIdentifier   Identifier
 hi def link dVersion             dStatement
 hi def link dScopeIdentifier     dStatement
 hi def link dScope               dStorageClass
+hi def link dTraits              dStatement
+hi def link dTraitsIdentifier    Identifier
 
 let b:current_syntax = "d"
 
