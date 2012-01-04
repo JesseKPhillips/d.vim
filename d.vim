@@ -31,9 +31,12 @@ if exists("b:current_syntax")
   finish
 endif
 
+" Necessary to highlight C++ in extern modifiers.
+setlocal iskeyword+=+
+
 " Keyword definitions
 "
-syn keyword dExternal              import module extern
+syn keyword dExternal              import module
 syn keyword dConditional           if else switch
 syn keyword dBranch                goto break continue
 syn keyword dRepeat                while for do foreach foreach_reverse
@@ -95,6 +98,7 @@ syn keyword dTraitsIdentifier      contained isAbstractFunction isFinalFunction 
 syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember identifier getMember
 syn keyword dTraitsIdentifier      contained getOverloads getVirtualFunctions parent compiles
 syn keyword dTraitsIdentifier      contained classInstanceSize allMembers derivedMembers isSame
+syn keyword dExternIdentifier      contained C C++ Windows Pascal Java System D
 syn keyword dAttribute             contained safe trusted system
 syn keyword dAttribute             contained property disable
 syn keyword dVersionIdentifier     contained DigitalMars GNU LDC SDC D_NET
@@ -125,11 +129,17 @@ syn match dStorageClass   "\<scope\>"
 " Traits Expression
 syn match dStatement    "\<__traits\>"
 
+" Extern Modifier
+syn match dExternal     "\<extern\>"
+
 " Scope Identifiers
 syn match dScope	"\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIdentifier
 
 " Traits Identifiers
 syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
+
+" Extern Identifiers
+syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
 
 " String is a statement and a module name.
 syn match dType "[^.]\<string\>"ms=s+1
@@ -344,6 +354,8 @@ hi def link dScope               dStorageClass
 hi def link dScopeIdentifier     Identifier
 hi def link dTraits              dStatement
 hi def link dTraitsIdentifier    Identifier
+hi def link dExtern              dExternal
+hi def link dExternIdentifier    Identifier
 
 let b:current_syntax = "d"
 
