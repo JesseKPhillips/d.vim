@@ -76,7 +76,15 @@ syn keyword dType                  char wchar dchar string wstring dstring
 syn keyword dType                  ireal ifloat idouble creal cfloat cdouble
 syn keyword dType                  size_t ptrdiff_t sizediff_t equals_t hash_t
 if exists("d_hl_object_types")
-  syn keyword dType                Object Throwable AssociativeArray
+  syn keyword dType                Object Throwable AssociativeArray Error Exception
+  syn keyword dType                Interface OffsetTypeInfo TypeInfo TypeInfo_Typedef
+  syn keyword dType                TypeInfo_Enum TypeInfo_Pointer TypeInfo_Array
+  syn keyword dType                TypeInfo_StaticArray TypeInfo_AssociativeArray
+  syn keyword dType                TypeInfo_Function TypeInfo_Delegate TypeInfo_Class
+  syn keyword dType                ClassInfo TypeInfo_Interface TypeInfo_Struct
+  syn keyword dType                TypeInfo_Tuple TypeInfo_Const TypeInfo_Invariant
+  syn keyword dType                TypeInfo_Shared TypeInfo_Inout MemberInfo
+  syn keyword dType                MemberInfo_field MemberInfo_function ModuleInfo
 endif
 syn keyword dDebug                 deprecated unittest invariant
 syn keyword dExceptions            throw try catch finally
