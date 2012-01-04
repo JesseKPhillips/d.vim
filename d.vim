@@ -66,7 +66,7 @@ endif
 syn keyword dType                  byte ubyte short ushort int uint long ulong cent ucent
 syn keyword dType                  void bool bit
 syn keyword dType                  float double real
-syn keyword dType                  void ushort int uint long ulong float
+syn keyword dType                  ushort int uint long ulong float
 syn keyword dType                  char wchar dchar string wstring dstring
 syn keyword dType                  ireal ifloat idouble creal cfloat cdouble
 if exists("d_hl_object_types")
