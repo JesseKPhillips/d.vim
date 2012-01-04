@@ -74,8 +74,8 @@ syn keyword dType                  float double real
 syn keyword dType                  ushort int uint long ulong float
 syn keyword dType                  char wchar dchar string wstring dstring
 syn keyword dType                  ireal ifloat idouble creal cfloat cdouble
+syn keyword dType                  size_t ptrdiff_t sizediff_t equals_t hash_t
 if exists("d_hl_object_types")
-  syn keyword dType                size_t ptrdiff_t sizediff_t equals_t hash_t
   syn keyword dType                Object Throwable AssociativeArray
 endif
 syn keyword dDebug                 deprecated unittest invariant
