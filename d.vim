@@ -23,6 +23,8 @@
 "
 "   d_hl_operator_overload - Set to highlight D's specially named functions
 "   that when overloaded implement unary and binary operators (e.g. opCmp).
+"
+"   d_hl_object_types - Set to highlight some common types from object.di.
 
 " Quit when a syntax file was already loaded
 if exists("b:current_syntax")
