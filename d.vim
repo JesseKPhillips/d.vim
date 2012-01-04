@@ -63,7 +63,7 @@ if exists("d_hl_operator_overload")
   syn keyword dOpOverload          opCall opSlice opSliceAssign opSliceOpAssign 
   syn keyword dOpOverload          opPos opAdd_r opMul_r opAnd_r opOr_r opXor_r
   syn keyword dOpOverload          opIn opIn_r opPow opDispatch opStar opDot 
-  syn keyword dOpOverload          opApply opApplyReverse
+  syn keyword dOpOverload          opApply opApplyReverse opDollar
   syn keyword dOpOverload          opUnary opIndexUnary opSliceUnary
   syn keyword dOpOverload          opBinary opBinaryRight
 endif
