@@ -23,15 +23,20 @@
 "
 "   d_hl_operator_overload - Set to highlight D's specially named functions
 "   that when overloaded implement unary and binary operators (e.g. opCmp).
+"
+"   d_hl_object_types - Set to highlight some common types from object.di.
 
 " Quit when a syntax file was already loaded
 if exists("b:current_syntax")
   finish
 endif
 
+" Necessary to highlight C++ in extern modifiers.
+setlocal iskeyword+=+
+
 " Keyword definitions
 "
-syn keyword dExternal              import module extern
+syn keyword dExternal              import module
 syn keyword dConditional           if else switch
 syn keyword dBranch                goto break continue
 syn keyword dRepeat                while for do foreach foreach_reverse
@@ -58,7 +63,7 @@ if exists("d_hl_operator_overload")
   syn keyword dOpOverload          opCall opSlice opSliceAssign opSliceOpAssign 
   syn keyword dOpOverload          opPos opAdd_r opMul_r opAnd_r opOr_r opXor_r
   syn keyword dOpOverload          opIn opIn_r opPow opDispatch opStar opDot 
-  syn keyword dOpOverload          opApply opApplyReverse
+  syn keyword dOpOverload          opApply opApplyReverse opDollar
   syn keyword dOpOverload          opUnary opIndexUnary opSliceUnary
   syn keyword dOpOverload          opBinary opBinaryRight
 endif
@@ -66,18 +71,26 @@ endif
 syn keyword dType                  byte ubyte short ushort int uint long ulong cent ucent
 syn keyword dType                  void bool bit
 syn keyword dType                  float double real
-syn keyword dType                  void ushort int uint long ulong float
+syn keyword dType                  ushort int uint long ulong float
 syn keyword dType                  char wchar dchar string wstring dstring
 syn keyword dType                  ireal ifloat idouble creal cfloat cdouble
+syn keyword dType                  size_t ptrdiff_t sizediff_t equals_t hash_t
 if exists("d_hl_object_types")
-  syn keyword dType                size_t ptrdiff_t sizediff_t equals_t hash_t
-  syn keyword dType                Object Throwable AssociativeArray
+  syn keyword dType                Object Throwable AssociativeArray Error Exception
+  syn keyword dType                Interface OffsetTypeInfo TypeInfo TypeInfo_Typedef
+  syn keyword dType                TypeInfo_Enum TypeInfo_Pointer TypeInfo_Array
+  syn keyword dType                TypeInfo_StaticArray TypeInfo_AssociativeArray
+  syn keyword dType                TypeInfo_Function TypeInfo_Delegate TypeInfo_Class
+  syn keyword dType                ClassInfo TypeInfo_Interface TypeInfo_Struct
+  syn keyword dType                TypeInfo_Tuple TypeInfo_Const TypeInfo_Invariant
+  syn keyword dType                TypeInfo_Shared TypeInfo_Inout MemberInfo
+  syn keyword dType                MemberInfo_field MemberInfo_function ModuleInfo
 endif
 syn keyword dDebug                 deprecated unittest invariant
 syn keyword dExceptions            throw try catch finally
 syn keyword dScopeDecl             public protected private export package 
 syn keyword dStatement             debug return with
-syn keyword dStatement             function delegate __traits __ctfe mixin macro
+syn keyword dStatement             function delegate __ctfe mixin macro
 syn keyword dStorageClass          in out inout ref lazy body
 syn keyword dStorageClass          pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
@@ -86,6 +99,14 @@ syn keyword dStorageClass          synchronized shared immutable const lazy
 syn keyword dPragma                pragma
 syn keyword dIdentifier            _arguments _argptr __vptr __monitor _ctor _dtor
 syn keyword dScopeIdentifier       contained exit success failure
+syn keyword dTraitsIdentifier      contained isAbstractClass isArithmetic isAssociativeArray
+syn keyword dTraitsIdentifier      contained isFinalClass isFloating isIntegral isScalar
+syn keyword dTraitsIdentifier      contained isStaticArray isUnsigned isVirtualFunction
+syn keyword dTraitsIdentifier      contained isAbstractFunction isFinalFunction isStaticFunction
+syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember identifier getMember
+syn keyword dTraitsIdentifier      contained getOverloads getVirtualFunctions parent compiles
+syn keyword dTraitsIdentifier      contained classInstanceSize allMembers derivedMembers isSame
+syn keyword dExternIdentifier      contained C C++ Windows Pascal Java System D
 syn keyword dAttribute             contained safe trusted system
 syn keyword dAttribute             contained property disable
 syn keyword dVersionIdentifier     contained DigitalMars GNU LDC SDC D_NET
@@ -108,13 +129,25 @@ syn match dAnnotation	"@[_$a-zA-Z][_$a-zA-Z0-9_]*\>" contains=dAttribute
 " Version Identifiers
 syn match dVersion   "[^.]\<version\>"hs=s+1 nextgroup=dVersionInside
 syn match dVersion   "^\<version\>" nextgroup=dVersionInside
-syn match dVersionInside  "([_a-zA-Z][_a-zA-Z0-9]*\>" transparent contained contains=dVersionIdentifier
+syn match dVersionInside  "\s*([_a-zA-Z][_a-zA-Z0-9]*\>" transparent contained contains=dVersionIdentifier
 
 " Scope StorageClass
 syn match dStorageClass   "\<scope\>"
 
+" Traits Expression
+syn match dStatement    "\<__traits\>"
+
+" Extern Modifier
+syn match dExternal     "\<extern\>"
+
 " Scope Identifiers
 syn match dScope	"\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIdentifier
+
+" Traits Identifiers
+syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
+
+" Extern Identifiers
+syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
 
 " String is a statement and a module name.
 syn match dType "[^.]\<string\>"ms=s+1
@@ -323,10 +356,14 @@ hi def link dAnnotation          PreProc
 hi def link dSharpBang           PreProc
 hi def link dAttribute           StorageClass
 hi def link dIdentifier          Identifier
-hi def link dVersionIdentifier   Identifier
 hi def link dVersion             dStatement
-hi def link dScopeIdentifier     dStatement
+hi def link dVersionIdentifier   Identifier
 hi def link dScope               dStorageClass
+hi def link dScopeIdentifier     Identifier
+hi def link dTraits              dStatement
+hi def link dTraitsIdentifier    Identifier
+hi def link dExtern              dExternal
+hi def link dExternIdentifier    Identifier
 
 let b:current_syntax = "d"
 
