@@ -2,7 +2,7 @@
 "
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
-" Last Change:  2010 Nov 18
+" Last Change:  2012 Jan 08
 " Version:      0.24
 "
 " Contributors:
@@ -30,6 +30,13 @@
 if exists("b:current_syntax")
   finish
 endif
+
+" Support cpoptions
+let s:cpo_save = &cpo
+set cpo&vim
+
+" Set the current syntax to be known as d
+let b:current_syntax = "d"
 
 " Necessary to highlight C++ in extern modifiers.
 setlocal iskeyword+=+
@@ -365,8 +372,6 @@ hi def link dTraitsIdentifier    Identifier
 hi def link dExtern              dExternal
 hi def link dExternIdentifier    Identifier
 
-let b:current_syntax = "d"
-
 " Marks contents of the asm statment body as special
 
 syn match dAsmStatement "\<asm\>"
@@ -494,3 +499,5 @@ syn keyword dAsmOpCode contained	pfnacc 	pfpnacc 	pfrcp 	pfrcpit1 	pfrcpit2
 syn keyword dAsmOpCode contained	pfrsqit1 	pfrsqrt 	pfsub 	pfsubr 	pi2fd
 syn keyword dAsmOpCode contained	pmulhrw 	pswapd
 
+let &cpo = s:cpo_save
+unlet s:cpo_save
