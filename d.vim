@@ -2,7 +2,7 @@
 "
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
-" Last Change:  2012 Jan 08
+" Last Change:  2012 Jan 11
 " Version:      0.24
 "
 " Contributors:
@@ -37,9 +37,6 @@ set cpo&vim
 
 " Set the current syntax to be known as d
 let b:current_syntax = "d"
-
-" Necessary to highlight C++ in extern modifiers.
-setlocal iskeyword+=+
 
 " Keyword definitions
 "
@@ -113,7 +110,7 @@ syn keyword dTraitsIdentifier      contained isAbstractFunction isFinalFunction 
 syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember identifier getMember
 syn keyword dTraitsIdentifier      contained getOverloads getVirtualFunctions parent compiles
 syn keyword dTraitsIdentifier      contained classInstanceSize allMembers derivedMembers isSame
-syn keyword dExternIdentifier      contained C C++ Windows Pascal Java System D
+syn keyword dExternIdentifier      contained Windows Pascal Java System D
 syn keyword dAttribute             contained safe trusted system
 syn keyword dAttribute             contained property disable
 syn keyword dVersionIdentifier     contained DigitalMars GNU LDC SDC D_NET
@@ -152,6 +149,9 @@ syn match dScope	"\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIden
 
 " Traits Identifiers
 syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
+
+" Necessary to highlight C++ in extern modifiers.
+syn match dExternIdentifier "C\(++\)\?"
 
 " Extern Identifiers
 syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
