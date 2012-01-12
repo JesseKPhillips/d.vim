@@ -151,7 +151,7 @@ syn match dScope	"\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIden
 syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
 
 " Necessary to highlight C++ in extern modifiers.
-syn match dExternIdentifier "C\(++\)\?"
+syn match dExternIdentifier "C\(++\)\?" contained
 
 " Extern Identifiers
 syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
