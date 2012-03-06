@@ -102,6 +102,7 @@ syn keyword dStorageClass          __gshared __thread __vector
 syn keyword dStorageClass          synchronized shared immutable const lazy
 syn keyword dPragma                pragma
 syn keyword dIdentifier            _arguments _argptr __vptr __monitor _ctor _dtor
+syn keyword dIdentifier            __argTypes __overloadset
 syn keyword dScopeIdentifier       contained exit success failure
 syn keyword dTraitsIdentifier      contained isAbstractClass isArithmetic isAssociativeArray
 syn keyword dTraitsIdentifier      contained isFinalClass isFloating isIntegral isScalar
