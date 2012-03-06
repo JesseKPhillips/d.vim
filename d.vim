@@ -94,11 +94,11 @@ syn keyword dDebug                 deprecated unittest invariant
 syn keyword dExceptions            throw try catch finally
 syn keyword dScopeDecl             public protected private export package 
 syn keyword dStatement             debug return with
-syn keyword dStatement             function delegate __ctfe mixin macro
+syn keyword dStatement             function delegate __ctfe mixin macro __simd
 syn keyword dStorageClass          in out inout ref lazy body
 syn keyword dStorageClass          pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
-syn keyword dStorageClass          __gshared __thread
+syn keyword dStorageClass          __gshared __thread __vector
 syn keyword dStorageClass          synchronized shared immutable const lazy
 syn keyword dPragma                pragma
 syn keyword dIdentifier            _arguments _argptr __vptr __monitor _ctor _dtor
