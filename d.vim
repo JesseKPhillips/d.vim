@@ -16,7 +16,7 @@
 "   - Sohgo Takeuchi
 "
 " Please submit bugs/comments/suggestions to the github repo: 
-" https://github.com/he-the-great/d.vim
+" https://github.com/JesseKPhillips/d.vim
 "
 " Options:
 "   d_comment_strings - Set to highlight strings and numbers in comments.
