@@ -16,7 +16,7 @@
 "   - Sohgo Takeuchi
 "
 " Please submit bugs/comments/suggestions to the github repo: 
-" https://github.com/he-the-great/d.vim
+" https://github.com/JesseKPhillips/d.vim
 "
 " Options:
 "   d_comment_strings - Set to highlight strings and numbers in comments.
@@ -58,7 +58,7 @@ if exists("d_hl_operator_overload")
   syn keyword dOpOverload          opSub opSub_r opMul opDiv opDiv_r opMod 
   syn keyword dOpOverload          opMod_r opAnd opOr opXor opShl opShl_r opShr
   syn keyword dOpOverload          opShr_r opUShr opUShr_r opCat
-  syn keyword dOpOverload          opCat_r opEquals opEquals opCmp
+  syn keyword dOpOverload          opCat_r opEquals opCmp
   syn keyword dOpOverload          opAssign opAddAssign opSubAssign opMulAssign
   syn keyword dOpOverload          opDivAssign opModAssign opAndAssign 
   syn keyword dOpOverload          opOrAssign opXorAssign opShlAssign 
