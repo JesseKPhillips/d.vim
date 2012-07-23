@@ -1,4 +1,4 @@
-" Vim syntax file for the D programming language (version 1.053 and 2.047).
+" Vim syntax file for the D programming language (version 1.074 and 2.059).
 "
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
@@ -382,123 +382,170 @@ hi def link dAsmBody dUnicode
 hi def link dAsmStatement dStatement
 hi def link dAsmOpCode Identifier
 
-syn keyword dAsmOpCode contained	aaa  	aad  	aam  	aas  	adc
-syn keyword dAsmOpCode contained	add 	addpd 	addps 	addsd 	addss
-syn keyword dAsmOpCode contained	and 	andnpd 	andnps 	andpd 	andps
-syn keyword dAsmOpCode contained	arpl 	bound 	bsf 	bsr 	bswap
-syn keyword dAsmOpCode contained	bt 	btc 	btr 	bts 	call
-syn keyword dAsmOpCode contained	cbw 	cdq 	clc 	cld 	clflush
-syn keyword dAsmOpCode contained	cli 	clts 	cmc 	cmova 	cmovae
-syn keyword dAsmOpCode contained	cmovb 	cmovbe 	cmovc 	cmove 	cmovg
-syn keyword dAsmOpCode contained	cmovge 	cmovl 	cmovle 	cmovna 	cmovnae
-syn keyword dAsmOpCode contained	cmovnb 	cmovnbe 	cmovnc 	cmovne 	cmovng
-syn keyword dAsmOpCode contained	cmovnge 	cmovnl 	cmovnle 	cmovno 	cmovnp
-syn keyword dAsmOpCode contained	cmovns 	cmovnz 	cmovo 	cmovp 	cmovpe
-syn keyword dAsmOpCode contained	cmovpo 	cmovs 	cmovz 	cmp 	cmppd
-syn keyword dAsmOpCode contained	cmpps 	cmps 	cmpsb 	cmpsd 	cmpss
-syn keyword dAsmOpCode contained	cmpsw 	cmpxch8b 	cmpxchg 	comisd 	comiss
-syn keyword dAsmOpCode contained	cpuid 	cvtdq2pd 	cvtdq2ps 	cvtpd2dq 	cvtpd2pi
-syn keyword dAsmOpCode contained	cvtpd2ps 	cvtpi2pd 	cvtpi2ps 	cvtps2dq 	cvtps2pd
-syn keyword dAsmOpCode contained	cvtps2pi 	cvtsd2si 	cvtsd2ss 	cvtsi2sd 	cvtsi2ss
-syn keyword dAsmOpCode contained	cvtss2sd 	cvtss2si 	cvttpd2dq 	cvttpd2pi 	cvttps2dq
-syn keyword dAsmOpCode contained	cvttps2pi 	cvttsd2si 	cvttss2si 	cwd 	cwde
-syn keyword dAsmOpCode contained	da 	daa 	das 	db 	dd
-syn keyword dAsmOpCode contained	de 	dec 	df 	di 	div
-syn keyword dAsmOpCode contained	divpd 	divps 	divsd 	divss 	dl
-syn keyword dAsmOpCode contained	dq 	ds 	dt 	dw 	emms
-syn keyword dAsmOpCode contained	enter 	f2xm1 	fabs 	fadd 	faddp
-syn keyword dAsmOpCode contained	fbld 	fbstp 	fchs 	fclex 	fcmovb
-syn keyword dAsmOpCode contained	fcmovbe 	fcmove 	fcmovnb 	fcmovnbe 	fcmovne
-syn keyword dAsmOpCode contained	fcmovnu 	fcmovu 	fcom 	fcomi 	fcomip
-syn keyword dAsmOpCode contained	fcomp 	fcompp 	fcos 	fdecstp 	fdisi
-syn keyword dAsmOpCode contained	fdiv 	fdivp 	fdivr 	fdivrp 	feni
-syn keyword dAsmOpCode contained	ffree 	fiadd 	ficom 	ficomp 	fidiv
-syn keyword dAsmOpCode contained	fidivr 	fild 	fimul 	fincstp 	finit
-syn keyword dAsmOpCode contained	fist 	fistp 	fisub 	fisubr 	fld
-syn keyword dAsmOpCode contained	fld1 	fldcw 	fldenv 	fldl2e 	fldl2t
-syn keyword dAsmOpCode contained	fldlg2 	fldln2 	fldpi 	fldz 	fmul
-syn keyword dAsmOpCode contained	fmulp 	fnclex 	fndisi 	fneni 	fninit
-syn keyword dAsmOpCode contained	fnop 	fnsave 	fnstcw 	fnstenv 	fnstsw
-syn keyword dAsmOpCode contained	fpatan 	fprem 	fprem1 	fptan 	frndint
-syn keyword dAsmOpCode contained	frstor 	fsave 	fscale 	fsetpm 	fsin
-syn keyword dAsmOpCode contained	fsincos 	fsqrt 	fst 	fstcw 	fstenv
-syn keyword dAsmOpCode contained	fstp 	fstsw 	fsub 	fsubp 	fsubr
-syn keyword dAsmOpCode contained	fsubrp 	ftst 	fucom 	fucomi 	fucomip
-syn keyword dAsmOpCode contained	fucomp 	fucompp 	fwait 	fxam 	fxch
-syn keyword dAsmOpCode contained	fxrstor 	fxsave 	fxtract 	fyl2x 	fyl2xp1
-syn keyword dAsmOpCode contained	hlt 	idiv 	imul 	in 	inc
-syn keyword dAsmOpCode contained	ins 	insb 	insd 	insw 	int
-syn keyword dAsmOpCode contained	into 	invd 	invlpg 	iret 	iretd
-syn keyword dAsmOpCode contained	ja 	jae 	jb 	jbe 	jc
-syn keyword dAsmOpCode contained	jcxz 	je 	jecxz 	jg 	jge
-syn keyword dAsmOpCode contained	jl 	jle 	jmp 	jna 	jnae
-syn keyword dAsmOpCode contained	jnb 	jnbe 	jnc 	jne 	jng
-syn keyword dAsmOpCode contained	jnge 	jnl 	jnle 	jno 	jnp
-syn keyword dAsmOpCode contained	jns 	jnz 	jo 	jp 	jpe
-syn keyword dAsmOpCode contained	jpo 	js 	jz 	lahf 	lar
-syn keyword dAsmOpCode contained	ldmxcsr 	lds 	lea 	leave 	les
-syn keyword dAsmOpCode contained	lfence 	lfs 	lgdt 	lgs 	lidt
-syn keyword dAsmOpCode contained	lldt 	lmsw 	lock 	lods 	lodsb
-syn keyword dAsmOpCode contained	lodsd 	lodsw 	loop 	loope 	loopne
-syn keyword dAsmOpCode contained	loopnz 	loopz 	lsl 	lss 	ltr
-syn keyword dAsmOpCode contained	maskmovdqu 	maskmovq 	maxpd 	maxps 	maxsd
-syn keyword dAsmOpCode contained	maxss 	mfence 	minpd 	minps 	minsd
-syn keyword dAsmOpCode contained	minss 	mov 	movapd 	movaps 	movd
-syn keyword dAsmOpCode contained	movdq2q 	movdqa 	movdqu 	movhlps 	movhpd
-syn keyword dAsmOpCode contained	movhps 	movlhps 	movlpd 	movlps 	movmskpd
-syn keyword dAsmOpCode contained	movmskps 	movntdq 	movnti 	movntpd 	movntps
-syn keyword dAsmOpCode contained	movntq 	movq 	movq2dq 	movs 	movsb
-syn keyword dAsmOpCode contained	movsd 	movss 	movsw 	movsx 	movupd
-syn keyword dAsmOpCode contained	movups 	movzx 	mul 	mulpd 	mulps
-syn keyword dAsmOpCode contained	mulsd 	mulss 	neg 	nop 	not
-syn keyword dAsmOpCode contained	or 	orpd 	orps 	out 	outs
-syn keyword dAsmOpCode contained	outsb 	outsd 	outsw 	packssdw 	packsswb
-syn keyword dAsmOpCode contained	packuswb 	paddb 	paddd 	paddq 	paddsb
-syn keyword dAsmOpCode contained	paddsw 	paddusb 	paddusw 	paddw 	pand
-syn keyword dAsmOpCode contained	pandn 	pavgb 	pavgw 	pcmpeqb 	pcmpeqd
-syn keyword dAsmOpCode contained	pcmpeqw 	pcmpgtb 	pcmpgtd 	pcmpgtw 	pextrw
-syn keyword dAsmOpCode contained	pinsrw 	pmaddwd 	pmaxsw 	pmaxub 	pminsw
-syn keyword dAsmOpCode contained	pminub 	pmovmskb 	pmulhuw 	pmulhw 	pmullw
-syn keyword dAsmOpCode contained	pmuludq 	pop 	popa 	popad 	popf
-syn keyword dAsmOpCode contained	popfd 	por 	prefetchnta 	prefetcht0 	prefetcht1
-syn keyword dAsmOpCode contained	prefetcht2 	psadbw 	pshufd 	pshufhw 	pshuflw
-syn keyword dAsmOpCode contained	pshufw 	pslld 	pslldq 	psllq 	psllw
-syn keyword dAsmOpCode contained	psrad 	psraw 	psrld 	psrldq 	psrlq
-syn keyword dAsmOpCode contained	psrlw 	psubb 	psubd 	psubq 	psubsb
-syn keyword dAsmOpCode contained	psubsw 	psubusb 	psubusw 	psubw 	punpckhbw
-syn keyword dAsmOpCode contained	punpckhdq 	punpckhqdq 	punpckhwd 	punpcklbw 	punpckldq
-syn keyword dAsmOpCode contained	punpcklqdq 	punpcklwd 	push 	pusha 	pushad
-syn keyword dAsmOpCode contained	pushf 	pushfd 	pxor 	rcl 	rcpps
-syn keyword dAsmOpCode contained	rcpss 	rcr 	rdmsr 	rdpmc 	rdtsc
-syn keyword dAsmOpCode contained	rep 	repe 	repne 	repnz 	repz
-syn keyword dAsmOpCode contained	ret 	retf 	rol 	ror 	rsm
-syn keyword dAsmOpCode contained	rsqrtps 	rsqrtss 	sahf 	sal 	sar
-syn keyword dAsmOpCode contained	sbb 	scas 	scasb 	scasd 	scasw
-syn keyword dAsmOpCode contained	seta 	setae 	setb 	setbe 	setc
-syn keyword dAsmOpCode contained	sete 	setg 	setge 	setl 	setle
-syn keyword dAsmOpCode contained	setna 	setnae 	setnb 	setnbe 	setnc
-syn keyword dAsmOpCode contained	setne 	setng 	setnge 	setnl 	setnle
-syn keyword dAsmOpCode contained	setno 	setnp 	setns 	setnz 	seto
-syn keyword dAsmOpCode contained	setp 	setpe 	setpo 	sets 	setz
-syn keyword dAsmOpCode contained	sfence 	sgdt 	shl 	shld 	shr
-syn keyword dAsmOpCode contained	shrd 	shufpd 	shufps 	sidt 	sldt
-syn keyword dAsmOpCode contained	smsw 	sqrtpd 	sqrtps 	sqrtsd 	sqrtss
-syn keyword dAsmOpCode contained	stc 	std 	sti 	stmxcsr 	stos
-syn keyword dAsmOpCode contained	stosb 	stosd 	stosw 	str 	sub
-syn keyword dAsmOpCode contained	subpd 	subps 	subsd 	subss 	sysenter
-syn keyword dAsmOpCode contained	sysexit 	test 	ucomisd 	ucomiss 	ud2
-syn keyword dAsmOpCode contained	unpckhpd 	unpckhps 	unpcklpd 	unpcklps 	verr
-syn keyword dAsmOpCode contained	verw 	wait 	wbinvd 	wrmsr 	xadd
-syn keyword dAsmOpCode contained	xchg 	xlat 	xlatb 	xor 	xorpd
-syn keyword dAsmOpCode contained	xorps 				
-syn keyword dAsmOpCode contained	addsubpd 	addsubps 	fisttp 	haddpd 	haddps
-syn keyword dAsmOpCode contained	hsubpd 	hsubps 	lddqu 	monitor 	movddup
-syn keyword dAsmOpCode contained	movshdup 	movsldup 	mwait 		
-syn keyword dAsmOpCode contained	pavgusb 	pf2id 	pfacc 	pfadd 	pfcmpeq
-syn keyword dAsmOpCode contained	pfcmpge 	pfcmpgt 	pfmax 	pfmin 	pfmul
-syn keyword dAsmOpCode contained	pfnacc 	pfpnacc 	pfrcp 	pfrcpit1 	pfrcpit2
-syn keyword dAsmOpCode contained	pfrsqit1 	pfrsqrt 	pfsub 	pfsubr 	pi2fd
-syn keyword dAsmOpCode contained	pmulhrw 	pswapd
+syn keyword dAsmOpCode contained	aaa		aad		aam		aas
+syn keyword dAsmOpCode contained	add		addpd		addps		addsd
+syn keyword dAsmOpCode contained	and		andnpd		andnps		andpd
+syn keyword dAsmOpCode contained	arpl		bound		bsf		bsr
+syn keyword dAsmOpCode contained	bt		btc		btr		bts
+syn keyword dAsmOpCode contained	call		bswap		andps		addss
+syn keyword dAsmOpCode contained	cbw		cdq		clc		cld
+syn keyword dAsmOpCode contained	cli		clts		cmc		cmova
+syn keyword dAsmOpCode contained	cmovb		cmovbe		cmovc		cmove
+syn keyword dAsmOpCode contained	cmovge		cmovl		cmovle		cmovna
+syn keyword dAsmOpCode contained	cmovnae		cmovg		cmovae		clflush
+syn keyword dAsmOpCode contained	cmovnb		cmovnbe		cmovnc		cmovne
+syn keyword dAsmOpCode contained	cmovnge		cmovnl		cmovnle		cmovno
+syn keyword dAsmOpCode contained	cmovns		cmovnz		cmovo		cmovp
+syn keyword dAsmOpCode contained	cmovpo		cmovs		cmovz		cmp
+syn keyword dAsmOpCode contained	cmppd		cmovpe		cmovnp		cmovng
+syn keyword dAsmOpCode contained	cmpps		cmps		cmpsb		cmpsd
+syn keyword dAsmOpCode contained	cmpsw		cmpxch8b	cmpxchg		comisd
+syn keyword dAsmOpCode contained	cpuid		cvtdq2pd	cvtdq2ps	cvtpd2dq
+syn keyword dAsmOpCode contained	cvtpd2ps	cvtpi2pd	cvtpi2ps	cvtps2dq
+syn keyword dAsmOpCode contained	cvtps2pd	cvtpd2pi	comiss		cmpss
+syn keyword dAsmOpCode contained	cvtps2pi	cvtsd2si	cvtsd2ss	cvtsi2sd
+syn keyword dAsmOpCode contained	cvtss2sd	cvtss2si	cvttpd2dq	cvttpd2pi
+syn keyword dAsmOpCode contained	cvttps2pi	cvttsd2si	cvttss2si	cwd
+syn keyword dAsmOpCode contained	da		daa		das		db
+syn keyword dAsmOpCode contained	dd		cwde		cvttps2dq	cvtsi2ss
+syn keyword dAsmOpCode contained	de		dec		df		di
+syn keyword dAsmOpCode contained	divpd		divps		divsd		divss
+syn keyword dAsmOpCode contained	dq		ds		dt		dw
+syn keyword dAsmOpCode contained	enter		f2xm1		fabs		fadd
+syn keyword dAsmOpCode contained	faddp		emms		dl		div
+syn keyword dAsmOpCode contained	fbld		fbstp		fchs		fclex
+syn keyword dAsmOpCode contained	fcmovbe		fcmove		fcmovnb		fcmovnbe
+syn keyword dAsmOpCode contained	fcmovnu		fcmovu		fcom		fcomi
+syn keyword dAsmOpCode contained	fcomp		fcompp		fcos		fdecstp
+syn keyword dAsmOpCode contained	fdisi		fcomip		fcmovne		fcmovb
+syn keyword dAsmOpCode contained	fdiv		fdivp		fdivr		fdivrp
+syn keyword dAsmOpCode contained	ffree		fiadd		ficom		ficomp
+syn keyword dAsmOpCode contained	fidivr		fild		fimul		fincstp
+syn keyword dAsmOpCode contained	fist		fistp		fisub		fisubr
+syn keyword dAsmOpCode contained	fld		finit		fidiv		feni
+syn keyword dAsmOpCode contained	fld1		fldcw		fldenv		fldl2e
+syn keyword dAsmOpCode contained	fldlg2		fldln2		fldpi		fldz
+syn keyword dAsmOpCode contained	fmulp		fnclex		fndisi		fneni
+syn keyword dAsmOpCode contained	fnop		fnsave		fnstcw		fnstenv
+syn keyword dAsmOpCode contained	fnstsw		fninit		fmul		fldl2t
+syn keyword dAsmOpCode contained	fpatan		fprem		fprem1		fptan
+syn keyword dAsmOpCode contained	frstor		fsave		fscale		fsetpm
+syn keyword dAsmOpCode contained	fsincos		fsqrt		fst		fstcw
+syn keyword dAsmOpCode contained	fstp		fstsw		fsub		fsubp
+syn keyword dAsmOpCode contained	fsubr		fstenv		fsin		frndint
+syn keyword dAsmOpCode contained	fsubrp		ftst		fucom		fucomi
+syn keyword dAsmOpCode contained	fucomp		fucompp		fwait		fxam
+syn keyword dAsmOpCode contained	fxrstor		fxsave		fxtract		fyl2x
+syn keyword dAsmOpCode contained	hlt		idiv		imul		in
+syn keyword dAsmOpCode contained	inc		fyl2xp1		fxch		fucomip
+syn keyword dAsmOpCode contained	ins		insb		insd		insw
+syn keyword dAsmOpCode contained	into		invd		invlpg		iret
+syn keyword dAsmOpCode contained	ja		jae		jb		jbe
+syn keyword dAsmOpCode contained	jcxz		je		jecxz		jg
+syn keyword dAsmOpCode contained	jge		jc		iretd		int
+syn keyword dAsmOpCode contained	jl		jle		jmp		jna
+syn keyword dAsmOpCode contained	jnb		jnbe		jnc		jne
+syn keyword dAsmOpCode contained	jnge		jnl		jnle		jno
+syn keyword dAsmOpCode contained	jns		jnz		jo		jp
+syn keyword dAsmOpCode contained	jpe		jnp		jng		jnae
+syn keyword dAsmOpCode contained	jpo		js		jz		lahf
+syn keyword dAsmOpCode contained	ldmxcsr		lds		lea		leave
+syn keyword dAsmOpCode contained	lfence		lfs		lgdt		lgs
+syn keyword dAsmOpCode contained	lldt		lmsw		lock		lods
+syn keyword dAsmOpCode contained	lodsb		lidt		les		lar
+syn keyword dAsmOpCode contained	lodsd		lodsw		loop		loope
+syn keyword dAsmOpCode contained	loopnz		loopz		lsl		lss
+syn keyword dAsmOpCode contained	maskmovdqu	maskmovq	maxpd		maxps
+syn keyword dAsmOpCode contained	maxss		mfence		minpd		minps
+syn keyword dAsmOpCode contained	minsd		maxsd		ltr		loopne
+syn keyword dAsmOpCode contained	minss		mov		movapd		movaps
+syn keyword dAsmOpCode contained	movdq2q		movdqa		movdqu		movhlps
+syn keyword dAsmOpCode contained	movhps		movlhps		movlpd		movlps
+syn keyword dAsmOpCode contained	movmskps	movntdq		movnti		movntpd
+syn keyword dAsmOpCode contained	movntps		movmskpd	movhpd		movd
+syn keyword dAsmOpCode contained	movntq		movq		movq2dq		movs
+syn keyword dAsmOpCode contained	movsd		movss		movsw		movsx
+syn keyword dAsmOpCode contained	movups		movzx		mul		mulpd
+syn keyword dAsmOpCode contained	mulsd		mulss		neg		nop
+syn keyword dAsmOpCode contained	not		mulps		movupd		movsb
+syn keyword dAsmOpCode contained	or		orpd		orps		out
+syn keyword dAsmOpCode contained	outsb		outsd		outsw		packssdw
+syn keyword dAsmOpCode contained	packuswb	paddb		paddd		paddq
+syn keyword dAsmOpCode contained	paddsw		paddusb		paddusw		paddw
+syn keyword dAsmOpCode contained	pand		paddsb		packsswb	outs
+syn keyword dAsmOpCode contained	pandn		pavgb		pavgw		pcmpeqb
+syn keyword dAsmOpCode contained	pcmpeqw		pcmpgtb		pcmpgtd		pcmpgtw
+syn keyword dAsmOpCode contained	pinsrw		pmaddwd		pmaxsw		pmaxub
+syn keyword dAsmOpCode contained	pminub		pmovmskb	pmulhuw		pmulhw
+syn keyword dAsmOpCode contained	pmullw		pminsw		pextrw		pcmpeqd
+syn keyword dAsmOpCode contained	pmuludq		pop		popa		popad
+syn keyword dAsmOpCode contained	popfd		por		prefetchnta	prefetcht0
+syn keyword dAsmOpCode contained	prefetcht2	psadbw		pshufd		pshufhw
+syn keyword dAsmOpCode contained	pshufw		pslld		pslldq		psllq
+syn keyword dAsmOpCode contained	psllw		pshuflw		prefetcht1	popf
+syn keyword dAsmOpCode contained	psrad		psraw		psrld		psrldq
+syn keyword dAsmOpCode contained	psrlw		psubb		psubd		psubq
+syn keyword dAsmOpCode contained	psubsw		psubusb		psubusw		psubw
+syn keyword dAsmOpCode contained	punpckhdq	punpckhqdq	punpckhwd	punpcklbw
+syn keyword dAsmOpCode contained	punpckldq	punpckhbw	psubsb		psrlq
+syn keyword dAsmOpCode contained	punpcklqdq	punpcklwd	push		pusha
+syn keyword dAsmOpCode contained	pushf		pushfd		pxor		rcl
+syn keyword dAsmOpCode contained	rcpss		rcr		rdmsr		rdpmc
+syn keyword dAsmOpCode contained	rep		repe		repne		repnz
+syn keyword dAsmOpCode contained	repz		rdtsc		rcpps		pushad
+syn keyword dAsmOpCode contained	ret		retf		rol		ror
+syn keyword dAsmOpCode contained	rsqrtps		rsqrtss		sahf		sal
+syn keyword dAsmOpCode contained	sbb		scas		scasb		scasd
+syn keyword dAsmOpCode contained	seta		setae		setb		setbe
+syn keyword dAsmOpCode contained	setc		scasw		sar		rsm
+syn keyword dAsmOpCode contained	sete		setg		setge		setl
+syn keyword dAsmOpCode contained	setna		setnae		setnb		setnbe
+syn keyword dAsmOpCode contained	setne		setng		setnge		setnl
+syn keyword dAsmOpCode contained	setno		setnp		setns		setnz
+syn keyword dAsmOpCode contained	seto		setnle		setnc		setle
+syn keyword dAsmOpCode contained	setp		setpe		setpo		sets
+syn keyword dAsmOpCode contained	sfence		sgdt		shl		shld
+syn keyword dAsmOpCode contained	shrd		shufpd		shufps		sidt
+syn keyword dAsmOpCode contained	smsw		sqrtpd		sqrtps		sqrtsd
+syn keyword dAsmOpCode contained	sqrtss		sldt		shr		setz
+syn keyword dAsmOpCode contained	stc		std		sti		stmxcsr
+syn keyword dAsmOpCode contained	stosb		stosd		stosw		str
+syn keyword dAsmOpCode contained	subpd		subps		subsd		subss
+syn keyword dAsmOpCode contained	sysexit		test		ucomisd		ucomiss
+syn keyword dAsmOpCode contained	ud2		sysenter	sub		stos
+syn keyword dAsmOpCode contained	unpckhpd	unpckhps	unpcklpd	unpcklps
+syn keyword dAsmOpCode contained	verw		wbinvd		wrmsr		xadd
+syn keyword dAsmOpCode contained	xchg		xlatb		xor		xorpd
+syn keyword dAsmOpCode contained	xorps		pfrcpit1	pfmin		movddup
+syn keyword dAsmOpCode contained	addsubpd	addsubps	fisttp		haddps
+syn keyword dAsmOpCode contained	hsubpd		hsubps		lddqu		monitor
+syn keyword dAsmOpCode contained	haddpd		xlat		wait		verr
+syn keyword dAsmOpCode contained	movshdup	movsldup	mwait		pfcmpeq
+syn keyword dAsmOpCode contained	pavgusb		pf2id		pfacc		pfadd
+syn keyword dAsmOpCode contained	pfcmpge		pfcmpgt		pfmax		pfmul
+syn keyword dAsmOpCode contained	pfnacc		pfpnacc		pfrcp		pfrcpit1
+syn keyword dAsmOpCode contained	pfrsqit1	pfrsqrt		pfsub		pfsubr
+syn keyword dAsmOpCode contained	pmulhrw 	pswapd		syscall		sysret
+syn keyword dAsmOpCode contained	vpmuldq		xgetbv		cmpxchg8b	cmpxchg16b
+syn keyword dAsmOpCode contained	pabsb		pabsd		pabsw		palignr
+syn keyword dAsmOpCode contained	phaddd		phaddsw		phaddw		phsubd
+syn keyword dAsmOpCode contained	phsubsw		phsubw		pmaddubsw	pmulhrsw
+syn keyword dAsmOpCode contained	pshufb		psignb		psignd		psignw
+syn keyword dAsmOpCode contained	popfq		pushfq		blendpd		blendps
+syn keyword dAsmOpCode contained	blendvpd	blendvps	extractps	insertps
+syn keyword dAsmOpCode contained	movntdqa	mpsadbw		packusdw	pblendvb
+syn keyword dAsmOpCode contained	pblendw		pcmpeqq		pextrb		pextrd
+syn keyword dAsmOpCode contained	pextrq		phminposuw	pinsrb		pinsrd
+syn keyword dAsmOpCode contained	pinsrq		pmaxsb		pmaxsd		pmaxud
+syn keyword dAsmOpCode contained	pmaxuw		pminsb		pminsd		pminud
+syn keyword dAsmOpCode contained	pminuw		pmulld		ptest		roundpd
+syn keyword dAsmOpCode contained	roundps		roundsd		roundss		pmuldq
+syn keyword dAsmOpCode contained	pmovsxbd	pmovsxdq	pmovzxbq	pmovzxdq
+syn keyword dAsmOpCode contained	pmovsxbq	pmovsxwd	pmovzxbq	pmovzxwd
+syn keyword dAsmOpCode contained	pmovsxbw	pmovsxwq	pmovzxbw	pmovzxwq
+syn keyword dAsmOpCode contained	crc32		pcmpestri	pcmpestrm	pcmpgtq
+syn keyword dAsmOpCode contained	pcmpistri	pcmpistrm	popcnt		pi2fd
+syn keyword dAsmOpCode contained	adc
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
