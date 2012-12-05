@@ -111,7 +111,8 @@ syn keyword dTraitsIdentifier      contained isAbstractFunction isFinalFunction 
 syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember identifier getMember
 syn keyword dTraitsIdentifier      contained getOverloads getVirtualFunctions parent compiles
 syn keyword dTraitsIdentifier      contained classInstanceSize allMembers derivedMembers isSame
-syn keyword dTraitsIdentifier      contained parameters getAttributes
+syn keyword dTraitsIdentifier      contained parameters getAttributes isVirtualMethod
+syn keyword dTraitsIdentifier      contained getVirtualMethods
 syn keyword dPragmaIdentifier      contained lib msg startaddress GNU_asm
 syn keyword dExternIdentifier      contained Windows Pascal Java System D
 syn keyword dAttribute             contained safe trusted system
