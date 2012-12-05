@@ -112,6 +112,7 @@ syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember identi
 syn keyword dTraitsIdentifier      contained getOverloads getVirtualFunctions parent compiles
 syn keyword dTraitsIdentifier      contained classInstanceSize allMembers derivedMembers isSame
 syn keyword dTraitsIdentifier      contained parameters getAttributes
+syn keyword dPragmaIdentifier      contained lib msg startaddress GNU_asm
 syn keyword dExternIdentifier      contained Windows Pascal Java System D
 syn keyword dAttribute             contained safe trusted system
 syn keyword dAttribute             contained property disable
@@ -143,6 +144,8 @@ syn match dStorageClass   "\<scope\>"
 " Traits Expression
 syn match dStatement    "\<__traits\>"
 
+syn match dStatement    "\<pragma\>"
+
 " Extern Modifier
 syn match dExternal     "\<extern\>"
 
@@ -151,6 +154,8 @@ syn match dScope	"\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIden
 
 " Traits Identifiers
 syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
+
+syn match dPragma       "\<pragma\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dPragmaIdentifier
 
 " Necessary to highlight C++ in extern modifiers.
 syn match dExternIdentifier "C\(++\)\?" contained
@@ -360,7 +365,6 @@ hi def link dLineComment         Comment
 hi def link dBlockComment        Comment
 hi def link dNestedComment       Comment
 hi def link dExternal            Include
-hi def link dPragma              PreProc
 hi def link dAnnotation          PreProc
 hi def link dSharpBang           PreProc
 hi def link dAttribute           StorageClass
@@ -371,6 +375,8 @@ hi def link dScope               dStorageClass
 hi def link dScopeIdentifier     Identifier
 hi def link dTraits              dStatement
 hi def link dTraitsIdentifier    Identifier
+hi def link dPragma              PreProc
+hi def link dPragmaIdentifier    Identifier
 hi def link dExtern              dExternal
 hi def link dExternIdentifier    Identifier
 
