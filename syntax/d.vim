@@ -384,7 +384,7 @@ hi def link dExternIdentifier    Identifier
 " Marks contents of the asm statment body as special
 
 syn match dAsmStatement "\<asm\>"
-syn region dAsmBody start="asm[\n]*\s*{"hs=e+1 end="}"he=e-1 contains=dAsmStatement,dAsmOpCode
+syn region dAsmBody start="asm[\n]*\s*{"hs=e+1 end="}"he=e-1 contains=dAsmStatement,dAsmOpCode,dBlockComment,dNestedComment,dLineComment,DUserLabel
 
 hi def link dAsmBody dUnicode
 hi def link dAsmStatement dStatement
