@@ -2,8 +2,8 @@
 "
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
-" Last Change:  2012 Jan 11
-" Version:      0.24
+" Last Change:  2013 May 15
+" Version:      0.25
 "
 " Contributors:
 "   - Jason Mills <jasonmills@nf.sympatico.ca>: original Maintainer
