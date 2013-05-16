@@ -40,7 +40,9 @@ let b:current_syntax = "d"
 
 " Keyword definitions
 "
-syn keyword dExternal              import module
+syn keyword dExternal              contained import
+syn keyword dExternal              module
+syn keyword dAssert                assert
 syn keyword dConditional           if else switch
 syn keyword dBranch                goto break continue
 syn keyword dRepeat                while for do foreach foreach_reverse
@@ -165,14 +167,8 @@ syn match dExternIdentifier "C\(++\)\?" contained
 " Extern Identifiers
 syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
 
-" String is a statement and a module name.
-syn match dType "[^.]\<string\>"ms=s+1
-syn match dType "^\<string\>"
-
-" Assert is a statement and a module name.
-syn match dAssert "[^.]\<assert\>"ms=s+1
-syn match dAssert "^\<assert\>"
-
+" Make import a region to prevent highlighting keywords
+syn region dImport start="import" end=";" contains=dExternal
 
 " dTokens is used by the token string highlighting
 syn cluster dTokens contains=dExternal,dConditional,dBranch,dRepeat,dBoolean
