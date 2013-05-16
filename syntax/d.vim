@@ -95,14 +95,15 @@ syn keyword dExceptions            throw try catch finally
 syn keyword dScopeDecl             public protected private export package 
 syn keyword dStatement             debug return with
 syn keyword dStatement             function delegate __ctfe mixin macro __simd
-syn keyword dStorageClass          in out inout ref lazy body
-syn keyword dStorageClass          pure nothrow
+syn keyword dStatement             in out body
+syn keyword dStorageClass          contained in out
+syn keyword dStorageClass          inout ref lazy pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
 syn keyword dStorageClass          __gshared __vector
 syn keyword dStorageClass          synchronized shared immutable const lazy
 syn keyword dPragma                pragma
-syn keyword dIdentifier            _arguments _argptr __vptr __monitor _ctor _dtor
-syn keyword dIdentifier            __argTypes __overloadset
+syn keyword dIdentifier            _arguments _argptr __vptr __monitor
+syn keyword dIdentifier             _ctor _dtor __argTypes __overloadset
 syn keyword dScopeIdentifier       contained exit success failure
 syn keyword dTraitsIdentifier      contained isAbstractClass isArithmetic isAssociativeArray
 syn keyword dTraitsIdentifier      contained isFinalClass isFloating isIntegral isScalar
@@ -172,12 +173,15 @@ syn match dType "^\<string\>"
 syn match dAssert "[^.]\<assert\>"ms=s+1
 syn match dAssert "^\<assert\>"
 
+
 " dTokens is used by the token string highlighting
 syn cluster dTokens contains=dExternal,dConditional,dBranch,dRepeat,dBoolean
 syn cluster dTokens add=dConstant,dTypedef,dStructure,dOperator,dOpOverload
 syn cluster dTokens add=dType,dDebug,dExceptions,dScopeDecl,dStatement
 syn cluster dTokens add=dStorageClass,dPragma,dAssert,dAnnotation
 
+" Create a match for parameter lists to identify storage class
+syn region paramlist start="(" end=")" contains=@dTokens
 
 " Labels
 "
