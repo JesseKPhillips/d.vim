@@ -103,7 +103,6 @@ syn keyword dStorageClass          inout ref lazy pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
 syn keyword dStorageClass          __gshared __vector
 syn keyword dStorageClass          synchronized shared immutable const lazy
-syn keyword dPragma                pragma
 syn keyword dIdentifier            _arguments _argptr __vptr __monitor
 syn keyword dIdentifier             _ctor _dtor __argTypes __overloadset
 syn keyword dScopeIdentifier       contained exit success failure
@@ -138,31 +137,26 @@ syn match dSharpBang "\%^#!.*"     display
 syn match dAnnotation	"@[_$a-zA-Z][_$a-zA-Z0-9_]*\>" contains=dAttribute
 
 " Version Identifiers
-syn match dVersion   "[^.]\<version\>"hs=s+1 nextgroup=dVersionInside
-syn match dVersion   "^\<version\>" nextgroup=dVersionInside
-syn match dVersionInside  "\s*([_a-zA-Z][_a-zA-Z0-9]*\>" transparent contained contains=dVersionIdentifier
-
-" Traits Expression
-syn match dStatement    "\<__traits\>"
-
-syn match dStatement    "\<pragma\>"
-
-" Extern Modifier
-syn match dExternal     "\<extern\>"
+syn match dVersion      "\<version\>"
+syn match dVersion      "\<version\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+7 contains=dVersionIdentifier
 
 " Scope Identifiers
 syn match dStatement    "\<scope\>"
 syn match dStatement    "\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIdentifier
 
-" Traits Identifiers
-syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
+" Traits Statement
+syn match dStatement    "\<__traits\>"
+syn match dStatement    "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier
 
+" Pragma Statement
+syn match dPragma       "\<pragma\>"
 syn match dPragma       "\<pragma\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dPragmaIdentifier
 
 " Necessary to highlight C++ in extern modifiers.
 syn match dExternIdentifier "C\(++\)\?" contained
 
 " Extern Identifiers
+syn match dExternal     "\<extern\>"
 syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
 
 " Make import a region to prevent highlighting keywords
@@ -370,9 +364,7 @@ hi def link dAttribute           StorageClass
 hi def link dIdentifier          Identifier
 hi def link dVersion             dStatement
 hi def link dVersionIdentifier   Identifier
-hi def link dScope               dStorageClass
 hi def link dScopeIdentifier     Identifier
-hi def link dTraits              dStatement
 hi def link dTraitsIdentifier    Identifier
 hi def link dPragma              PreProc
 hi def link dPragmaIdentifier    Identifier
