@@ -98,7 +98,7 @@ syn keyword dScopeDecl             public protected private export package
 syn keyword dStatement             debug return with
 syn keyword dStatement             function delegate __ctfe mixin macro __simd
 syn keyword dStatement             in out body
-syn keyword dStorageClass          contained in out
+syn keyword dStorageClass          contained in out scope
 syn keyword dStorageClass          inout ref lazy pure nothrow
 syn keyword dStorageClass          auto static override final abstract volatile
 syn keyword dStorageClass          __gshared __vector
@@ -142,9 +142,6 @@ syn match dVersion   "[^.]\<version\>"hs=s+1 nextgroup=dVersionInside
 syn match dVersion   "^\<version\>" nextgroup=dVersionInside
 syn match dVersionInside  "\s*([_a-zA-Z][_a-zA-Z0-9]*\>" transparent contained contains=dVersionIdentifier
 
-" Scope StorageClass
-syn match dStorageClass   "\<scope\>"
-
 " Traits Expression
 syn match dStatement    "\<__traits\>"
 
@@ -154,7 +151,8 @@ syn match dStatement    "\<pragma\>"
 syn match dExternal     "\<extern\>"
 
 " Scope Identifiers
-syn match dScope	"\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIdentifier
+syn match dStatement    "\<scope\>"
+syn match dStatement    "\<scope\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+5 contains=dScopeIdentifier
 
 " Traits Identifiers
 syn match dTraits       "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dTraitsIdentifier

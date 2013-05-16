@@ -10,5 +10,7 @@ in {
     return "bye";
 }
 
-void bar(string a, string file = __FILE__) 
-if(typeof(a) : string) {}
+void bar(scope string a, string file = __FILE__)
+if(typeof(a) : string) {
+    scope(exit) destroy(n);
+}
