@@ -40,8 +40,7 @@ let b:current_syntax = "d"
 
 " Keyword definitions
 "
-syn keyword dExternal              contained import
-syn keyword dExternal              module
+syn keyword dExternal              contained import module
 syn keyword dAssert                assert
 syn keyword dConditional           if else switch
 syn keyword dBranch                goto break continue
@@ -130,6 +129,8 @@ syn keyword dVersionIdentifier     contained D_InlineAsm_X86 D_InlineAsm_X86_64
 syn keyword dVersionIdentifier     contained D_Version2 D_Coverage D_Ddoc D_LP64 D_PIC
 syn keyword dVersionIdentifier     contained unittest none all
 
+syn cluster dComment contains=dNestedComment,dBlockComment,dLineComment
+
 " Highlight the sharpbang
 syn match dSharpBang "\%^#!.*"     display
 
@@ -160,7 +161,10 @@ syn match dExternal     "\<extern\>"
 syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
 
 " Make import a region to prevent highlighting keywords
-syn region dImport start="import" end=";" contains=dExternal
+syn region dImport start="import" end=";" contains=dExternal,@dComment
+
+" Make module a region to prevent highlighting keywords
+syn region dImport start="module" end=";" contains=dExternal,@dComment
 
 " dTokens is used by the token string highlighting
 syn cluster dTokens contains=dExternal,dConditional,dBranch,dRepeat,dBoolean
@@ -374,7 +378,7 @@ hi def link dExternIdentifier    Identifier
 " Marks contents of the asm statment body as special
 
 syn match dAsmStatement "\<asm\>"
-syn region dAsmBody start="asm[\n]*\s*{"hs=e+1 end="}"he=e-1 contains=dAsmStatement,dAsmOpCode,dBlockComment,dNestedComment,dLineComment,DUserLabel
+syn region dAsmBody start="asm[\n]*\s*{"hs=e+1 end="}"he=e-1 contains=dAsmStatement,dAsmOpCode,@dComment,DUserLabel
 
 hi def link dAsmBody dUnicode
 hi def link dAsmStatement dStatement
