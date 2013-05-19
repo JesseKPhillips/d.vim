@@ -76,7 +76,7 @@ if exists("d_hl_operator_overload")
 endif
 
 syn keyword dType                  byte ubyte short ushort int uint long ulong cent ucent
-syn keyword dType                  void bool bit
+syn keyword dType                  void bool Object
 syn keyword dType                  float double real
 syn keyword dType                  ushort int uint long ulong float
 syn keyword dType                  char wchar dchar string wstring dstring
