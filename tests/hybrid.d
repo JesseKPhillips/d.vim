@@ -11,6 +11,6 @@ in {
 }
 
 void bar(scope string a, string file = __FILE__)
-if(typeof(a) : string) {
+if(typeof(a) == enum) {
     scope(exit) destroy(n);
 }

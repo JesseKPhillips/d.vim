@@ -172,7 +172,7 @@ syn region dImport start="module" end=";" contains=dExternal,@dComment
 syn cluster dTokens contains=dExternal,dConditional,dBranch,dRepeat,dBoolean
 syn cluster dTokens add=dConstant,dTypedef,dStructure,dOperator,dOpOverload
 syn cluster dTokens add=dType,dDebug,dExceptions,dScopeDecl,dStatement
-syn cluster dTokens add=dStorageClass,dPragma,dAssert,dAnnotation
+syn cluster dTokens add=dStorageClass,dPragma,dAssert,dAnnotation,dEnum
 
 " Create a match for parameter lists to identify storage class
 syn region paramlist start="(" end=")" contains=@dTokens
