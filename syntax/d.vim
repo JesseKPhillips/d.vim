@@ -1,4 +1,4 @@
-" Vim syntax file for the D programming language (version 1.074 and 2.059).
+" Vim syntax file for the D programming language (version 1.076 and 2.063).
 "
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
@@ -14,6 +14,7 @@
 "   - Ellery Newcomer
 "   - Steven N. Oliver
 "   - Sohgo Takeuchi
+"   - Robert Clipsham
 "
 " Please submit bugs/comments/suggestions to the github repo: 
 " https://github.com/JesseKPhillips/d.vim
@@ -49,6 +50,7 @@ syn keyword dBoolean               true false
 syn keyword dConstant              null
 syn keyword dConstant              __FILE__ __LINE__ __EOF__ __VERSION__
 syn keyword dConstant              __DATE__ __TIME__ __TIMESTAMP__ __VENDOR__
+syn keyword dConstant              __MODULE__ __FUNCTION__ __PRETTY_FUNCTION__
 syn keyword dTypedef               alias typedef
 syn keyword dStructure             template interface class struct union
 syn keyword dEnum                  enum
