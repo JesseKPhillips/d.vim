@@ -107,15 +107,20 @@ syn keyword dStorageClass          synchronized shared immutable const lazy
 syn keyword dIdentifier            _arguments _argptr __vptr __monitor
 syn keyword dIdentifier             _ctor _dtor __argTypes __overloadset
 syn keyword dScopeIdentifier       contained exit success failure
-syn keyword dTraitsIdentifier      contained isAbstractClass isArithmetic isAssociativeArray
-syn keyword dTraitsIdentifier      contained isFinalClass isFloating isIntegral isScalar
-syn keyword dTraitsIdentifier      contained isStaticArray isUnsigned isVirtualFunction
-syn keyword dTraitsIdentifier      contained isAbstractFunction isFinalFunction isStaticFunction
-syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember identifier getMember
-syn keyword dTraitsIdentifier      contained getOverloads getVirtualFunctions parent compiles
-syn keyword dTraitsIdentifier      contained classInstanceSize allMembers derivedMembers isSame
-syn keyword dTraitsIdentifier      contained parameters getAttributes isVirtualMethod
-syn keyword dTraitsIdentifier      contained getVirtualMethods
+syn keyword dTraitsIdentifier      contained isAbstractClass isArithmetic
+syn keyword dTraitsIdentifier      contained isAssociativeArray isFinalClass
+syn keyword dTraitsIdentifier      contained isPOD isNested isFloating
+syn keyword dTraitsIdentifier      contained isIntegral isScalar isStaticArray
+syn keyword dTraitsIdentifier      contained isUnsigned isVirtualFunction
+syn keyword dTraitsIdentifier      contained isVirtualMethod isAbstractFunction
+syn keyword dTraitsIdentifier      contained isFinalFunction isStaticFunction
+syn keyword dTraitsIdentifier      contained isRef isOut isLazy hasMember
+syn keyword dTraitsIdentifier      contained identifier getAttributes getMember
+syn keyword dTraitsIdentifier      contained getOverloads getProtection
+syn keyword dTraitsIdentifier      contained getVirtualFunctions
+syn keyword dTraitsIdentifier      contained getVirtualMethods parent
+syn keyword dTraitsIdentifier      contained classInstanceSize allMembers
+syn keyword dTraitsIdentifier      contained derivedMembers isSame compiles
 syn keyword dPragmaIdentifier      contained lib msg startaddress GNU_asm
 syn keyword dExternIdentifier      contained Windows Pascal Java System D
 syn keyword dAttribute             contained safe trusted system
