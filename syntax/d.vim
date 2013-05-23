@@ -2,15 +2,15 @@
 "
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
-" Last Change:  2013 May 15
+" Last Change:  2013 May 21
 " Version:      0.25
 "
 " Contributors:
-"   - Jason Mills <jasonmills@nf.sympatico.ca>: original Maintainer
+"   - Jason Mills: original Maintainer
 "   - Kirk McDonald
 "   - Tim Keating
 "   - Frank Benoit
-"   - Shougo Matsushita <Shougo.Matsu@gmail.com>
+"   - Shougo Matsushita
 "   - Ellery Newcomer
 "   - Steven N. Oliver
 "   - Sohgo Takeuchi
