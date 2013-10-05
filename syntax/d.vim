@@ -158,7 +158,7 @@ syn match dStatement    "\<__traits\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=
 
 " Pragma Statement
 syn match dPragma       "\<pragma\>"
-syn match dPragma       "\<pragma\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+8 contains=dPragmaIdentifier
+syn match dPragma       "\<pragma\s*([_a-zA-Z][_a-zA-Z0-9]*\>"he=s+6 contains=dPragmaIdentifier
 
 " Necessary to highlight C++ in extern modifiers.
 syn match dExternIdentifier "C\(++\)\?" contained
@@ -251,7 +251,7 @@ syn region dRawString	start=+`+ end=+`[cwd]\=+ contains=@Spell
 syn region dRawString	start=+r"+ end=+"[cwd]\=+ contains=@Spell
 syn region dHexString	start=+x"+ end=+"[cwd]\=+ contains=@Spell
 syn region dDelimString	start=+q"\z(.\)+ end=+\z1"+ contains=@Spell
-syn region dHereString	start=+q"\z(\I\i*\)\n+ end=+\n\z1"+ contains=@Spell
+syn region dHereString	start=+q"\z(\I\i*\)\n+ end=+^\z1"+ contains=@Spell
 
 " Nesting delimited string contents
 "
