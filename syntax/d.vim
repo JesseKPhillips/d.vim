@@ -3,7 +3,7 @@
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
 " Last Change:  2013 October 5
-" Version:      0.25
+" Version:      0.26
 "
 " Contributors:
 "   - Jason Mills: original Maintainer
