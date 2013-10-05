@@ -2,7 +2,7 @@
 "
 " Language:     D
 " Maintainer:   Jesse Phillips <Jesse.K.Phillips+D@gmail.com>
-" Last Change:  2013 May 21
+" Last Change:  2013 October 5
 " Version:      0.25
 "
 " Contributors:
@@ -194,6 +194,9 @@ syn cluster dTokens add=dUserLabel,dLabel
 
 " Comments
 "
+syn match	dCommentError	display "\*/"
+syn match	dNestedCommentError	display "+/"
+
 syn keyword dTodo                                                                contained TODO FIXME TEMP REFACTOR REVIEW HACK BUG XXX
 syn match dCommentStar	contained "^\s*\*[^/]"me=e-1
 syn match dCommentStar	contained "^\s*\*$"
@@ -203,14 +206,11 @@ if exists("d_comment_strings")
   syn region dBlockCommentString	contained start=+"+ end=+"+ end=+\*/+me=s-1,he=s-1 contains=dCommentStar,dUnicode,dEscSequence,@Spell
   syn region dNestedCommentString	contained start=+"+ end=+"+ end="+"me=s-1,he=s-1 contains=dCommentPlus,dUnicode,dEscSequence,@Spell
   syn region dLineCommentString		contained start=+"+ end=+$\|"+ contains=dUnicode,dEscSequence,@Spell
-  syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTodo,@Spell fold
-  syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell fold
-  syn match  dLineComment	"//.*" contains=dLineCommentString,dTodo,@Spell
-else
-  syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTodo,@Spell fold
-  syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell fold
-  syn match  dLineComment	"//.*" contains=dLineCommentString,dTodo,@Spell
 endif
+
+syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTodo,dCommentStartError,@Spell fold
+syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell fold
+syn match  dLineComment	"//.*" contains=dLineCommentString,dTodo,@Spell
 
 hi link dLineCommentString	dBlockCommentString
 hi link dBlockCommentString	dString
@@ -370,6 +370,9 @@ hi def link dType                Type
 hi def link dLineComment         Comment
 hi def link dBlockComment        Comment
 hi def link dNestedComment       Comment
+hi def link dCommentError        Error
+hi def link dNestedCommentError  Error
+hi def link dCommentStartError   Error
 hi def link dExternal            Include
 hi def link dAnnotation          PreProc
 hi def link dSharpBang           PreProc
