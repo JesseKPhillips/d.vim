@@ -5,10 +5,6 @@
 " Last Change:  2014 January 19
 " Version:      0.26
 "
-" Contributors:
-"   - Jason Mills: original Maintainer
-"   - Mikkel Kjeldsen
-"
 " Please submit bugs/comments/suggestions to the github repo:
 " https://github.com/JesseKPhillips/d.vim
 
