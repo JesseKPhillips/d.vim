@@ -1,4 +1,4 @@
-// This files presents highlighting issues due to hybrid usage of keywords.
+// This file presents highlighting issues due to hybrid usage of keywords.
 
 void foo(in int a,
          out string b)

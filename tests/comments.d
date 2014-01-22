@@ -1,14 +1,14 @@
-// This is the highlighting off comments file
+// This is the highlighting of comments file
 module comments;
 
 /* It shows the different comments
- * and how they are highlightedt
+ * and how they are highlighted
  */
 
 import std.stdio;
 
 /++
- + As we can see it does look to work.
+ + As we can see it does seem to work.
  +/
 
 void main() {
