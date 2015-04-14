@@ -168,10 +168,10 @@ syn match dExternal     "\<extern\>"
 syn match dExtern       "\<extern\s*([_a-zA-Z][_a-zA-Z0-9\+]*\>"he=s+6 contains=dExternIdentifier
 
 " Make import a region to prevent highlighting keywords
-syn region dImport start="import\_s" end=";" contains=dExternal,@dComment
+syn region dImport start="\<import\_s" end=";" contains=dExternal,@dComment
 
 " Make module a region to prevent highlighting keywords
-syn region dImport start="module\_s" end=";" contains=dExternal,@dComment
+syn region dImport start="\<module\_s" end=";" contains=dExternal,@dComment
 
 " dTokens is used by the token string highlighting
 syn cluster dTokens contains=dExternal,dConditional,dBranch,dRepeat,dBoolean
