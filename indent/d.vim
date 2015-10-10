@@ -57,7 +57,7 @@ function GetDIndent()
     endif
     " Find the end of the last block or the function signature.
     if line !~ '^\s*}' && getline(lnum - 1) !~ '('
-      while getline(lnum - 1) !~ '[(}]'
+      while lnum > 1 && getline(lnum - 1) !~ '[(}]'
 	let lnum = lnum - 1
       endwhile
     endif
