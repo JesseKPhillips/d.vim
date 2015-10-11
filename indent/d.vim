@@ -65,5 +65,13 @@ function GetDIndent()
     return cindent(lnum - 1)
   endif
 
+  " Align multiline array literals. e.g.:
+  " auto a = [
+  "   [ 1, 2, 3 ],
+  "   [ 4, 5, 6 ],
+  if line =~ '^\s*\[' && getline(lnum - 1) =~ '^\s*\['
+    return indent(lnum - 1)
+  endif
+
   return cind
 endfunction
