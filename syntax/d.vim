@@ -31,10 +31,10 @@ let b:current_syntax = "d"
 "Ddoc 
 if getline(1) =~ "^Ddoc"
     "Ddoc File
-    syn match ddocKeyword "\%^Ddoc" display
-    syn keyword ddocKeyword MACROS contained
-    syn match ddocIdentifier "\$\s*(\s*\zs\h\w*\ze\_W*"     display
-    syn match ddocIdentifierDecl "^\s*\zs\h\w*\ze\s*="   display contained
+    syn match ddocKeyword       "\%^Ddoc"                  display
+    syn keyword ddocKeyword MACROS                         contained
+    syn match ddocIdentifier     "\$\s*(\s*\zs\h\w*\ze\_W*" display
+    syn match ddocIdentifierDecl "^\s*\zs\h\w*\ze\s*="      display contained
 
     syn region ddocDecl start="MACROS:\_s\+" end="\%$" transparent contains=ddocKeyword,ddocIdentifierDecl,ddocIdentifier
 
@@ -44,20 +44,20 @@ if getline(1) =~ "^Ddoc"
     " highlight only ddoc Identifiers
     hi! def link ddocIdentifier       Macro
     hi! def link ddocIdentifierDecl   Macro
-    hi! def link ddocKeyword          Macro
+    hi! def link ddocKeyword         Macro
     finish
 else
     "Ddoc inside comments
-    syn match ddocKeyword "MACROS\ze\s*:"                             display containedin=@dComment
-    syn match ddocIdentifier "\$\s*(\s*\zs\h\w*\ze\_W*"       display containedin=@dComment
-    syn match ddocIdentifierDecl "^[+\*]*\s*\zs\h\w*\ze\s*=" display containedin=@dComment
-    syn region ddocDecl start="MACROS:\_s\+" end="[+\|\*]\+/$" transparent fold contained containedin=@dComment contains=ddocKeyword,ddocIdentifierDecl,ddocIdentifier
+    syn match ddocKeyword       "MACROS\ze\s*:"                  display containedin=@dComment
+    syn match ddocIdentifier     "\$\s*(\s*\zs\h\w*\ze\_W*"       display containedin=@dComment
+    syn match ddocIdentifierDecl "^[+\*]*\s*\zs\h\w*\ze\s*="      display containedin=@dComment
+    syn region ddocDecl   start="MACROS:\_s\+" end="[+\|\*]\+/$" transparent fold contained containedin=@dComment contains=ddocKeyword,ddocIdentifierDecl,ddocIdentifier
 
     "reset to default commentstring
     set commentstring=/*%s*/
     hi! def link ddocIdentifier       Macro
     hi! def link ddocIdentifierDecl   Macro
-    hi! def link ddocKeyword          Macro
+    hi! def link ddocKeyword         Macro
 endif
 
 " Keyword definitions
