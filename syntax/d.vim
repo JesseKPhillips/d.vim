@@ -48,10 +48,11 @@ if getline(1) =~ "^Ddoc"
     finish
 else
     "Ddoc inside comments
-    syn match ddocKeyword       "MACROS\ze\s*:"                  display containedin=@dComment
-    syn match ddocIdentifier     "\$\s*(\s*\zs\h\w*\ze\_W*"       display containedin=@dComment
-    syn match ddocIdentifierDecl "^[+\*]*\s*\zs\h\w*\ze\s*="      display containedin=@dComment
-    syn region ddocDecl   start="MACROS:\_s\+" end="\ze[+\|\*]\+/" transparent fold contained containedin=@dComment contains=ddocKeyword,ddocIdentifierDecl,ddocIdentifier
+    syn keyword ddocKeyword       MACROS                    display
+    syn match ddocIdentifier     "\$\s*(\s*\zs\h\w*\ze\_W*"  display contained containedin=@ddocComment
+    syn match ddocIdentifierDecl "^[+\*]*\s*\zs\h\w*\ze\s*=" display contained
+    
+    syn region ddocDecl   start="MACROS:\_s\+" end="\ze[+\|\*]\+/" transparent fold contained containedin=@ddocComment contains=ddocKeyword,ddocIdentifierDecl,ddocIdentifier
 
     "reset to default commentstring
     set commentstring=/*%s*/
@@ -235,13 +236,18 @@ syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTo
 syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell fold
 syn match  dLineComment	"//.*" contains=dLineCommentString,dTodo,@Spell
 
+syn cluster ddocComment contains=ddocBlockComment,ddocNestedComment,ddocLineComment
+syn region ddocBlockComment  start="/\*\*" end="\*/" contains=dBlockCommentString,dTodo,dCommentStartError,@Spell fold
+syn region ddocNestedComment start="/++"   end="+/"  contains=ddocNestedComment,dNestedCommentString,dTodo,@Spell fold
+syn match  ddocLineComment   "///.*"                 contains=dLineCommentString,dTodo,@Spell
+
 hi link dLineCommentString	dBlockCommentString
 hi link dBlockCommentString	dString
 hi link dNestedCommentString	dString
 hi link dCommentStar		dBlockComment
 hi link dCommentPlus		dNestedComment
 
-syn cluster dTokens add=dBlockComment,dNestedComment,dLineComment
+syn cluster dTokens add=dBlockComment,dNestedComment,dLineComment,ddocBlockComment,ddocNestedComment,ddocLineComment
 
 " /+ +/ style comments and strings that span multiple lines can cause
 " problems. To play it safe, set minlines to a large number.
@@ -398,6 +404,9 @@ hi def link dType                Type
 hi def link dLineComment         Comment
 hi def link dBlockComment        Comment
 hi def link dNestedComment       Comment
+hi def link ddocLineComment      Comment
+hi def link ddocBlockComment     Comment
+hi def link ddocNestedComment    Comment
 hi def link dCommentError        Error
 hi def link dNestedCommentError  Error
 hi def link dCommentStartError   Error
