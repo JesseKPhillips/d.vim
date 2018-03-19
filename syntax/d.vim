@@ -51,7 +51,7 @@ else
     syn match ddocKeyword       "MACROS\ze\s*:"                  display containedin=@dComment
     syn match ddocIdentifier     "\$\s*(\s*\zs\h\w*\ze\_W*"       display containedin=@dComment
     syn match ddocIdentifierDecl "^[+\*]*\s*\zs\h\w*\ze\s*="      display containedin=@dComment
-    syn region ddocDecl   start="MACROS:\_s\+" end="[+\|\*]\+/$" transparent fold contained containedin=@dComment contains=ddocKeyword,ddocIdentifierDecl,ddocIdentifier
+    syn region ddocDecl   start="MACROS:\_s\+" end="\ze[+\|\*]\+/" transparent fold contained containedin=@dComment contains=ddocKeyword,ddocIdentifierDecl,ddocIdentifier
 
     "reset to default commentstring
     set commentstring=/*%s*/
