@@ -16,6 +16,9 @@
 "
 "   d_hl_object_types - Set to highlight some common types from object.di.
 
+"load the ddoc syntax
+runtime! /syntax/ddoc.vim
+
 " Quit when a syntax file was already loaded
 if exists("b:current_syntax")
   finish
@@ -27,6 +30,7 @@ set cpo&vim
 
 " Set the current syntax to be known as d
 let b:current_syntax = "d"
+
 
 " Keyword definitions
 "
@@ -203,13 +207,18 @@ syn region dBlockComment	start="/\*"  end="\*/" contains=dBlockCommentString,dTo
 syn region dNestedComment	start="/+"  end="+/" contains=dNestedComment,dNestedCommentString,dTodo,@Spell fold
 syn match  dLineComment	"//.*" contains=dLineCommentString,dTodo,@Spell
 
+syn cluster ddocComment contains=ddocBlockComment,ddocNestedComment,ddocLineComment
+syn region ddocBlockComment  start="/\*\*" end="\*/" contains=dBlockCommentString,dTodo,dCommentStartError,@Spell fold
+syn region ddocNestedComment start="/++"   end="+/"  contains=ddocNestedComment,dNestedCommentString,dTodo,@Spell fold
+syn match  ddocLineComment   "///.*"                 contains=dLineCommentString,dTodo,@Spell
+
 hi link dLineCommentString	dBlockCommentString
 hi link dBlockCommentString	dString
 hi link dNestedCommentString	dString
 hi link dCommentStar		dBlockComment
 hi link dCommentPlus		dNestedComment
 
-syn cluster dTokens add=dBlockComment,dNestedComment,dLineComment
+syn cluster dTokens add=dBlockComment,dNestedComment,dLineComment,ddocBlockComment,ddocNestedComment,ddocLineComment
 
 " /+ +/ style comments and strings that span multiple lines can cause
 " problems. To play it safe, set minlines to a large number.
@@ -366,6 +375,9 @@ hi def link dType                Type
 hi def link dLineComment         Comment
 hi def link dBlockComment        Comment
 hi def link dNestedComment       Comment
+hi def link ddocLineComment      Comment
+hi def link ddocBlockComment     Comment
+hi def link ddocNestedComment    Comment
 hi def link dCommentError        Error
 hi def link dNestedCommentError  Error
 hi def link dCommentStartError   Error
